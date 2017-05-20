@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on One True Way</title>
+    <link>https://kenan-rhoton.github.io/tags/</link>
+    <description>Recent content in Tags on One True Way</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Fri, 19 May 2017 16:41:02 +0200</lastBuildDate>
+    
+	<atom:link href="https://kenan-rhoton.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go</title>
+      <link>https://kenan-rhoton.github.io/tags/go/</link>
+      <pubDate>Fri, 19 May 2017 16:41:02 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>When Should I Use</title>
+      <link>https://kenan-rhoton.github.io/tags/when-should-i-use/</link>
+      <pubDate>Fri, 19 May 2017 16:41:02 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/tags/when-should-i-use/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

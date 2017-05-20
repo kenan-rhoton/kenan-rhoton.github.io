@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>When Should I Use Go? &middot; One True Way</title>
+    <meta name="author" content="Kenan Rhoton">
+    <meta name="description" content="A blog where we discuss the Way of doing things">
+    <meta name="generator" content="Hugo 0.21-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://kenan-rhoton.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/screen.css">
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #ff9d00;}
+    .pagination a {color: #ff9d00;}
+    .gist .gist-file .gist-meta a:visited {color: #ff9d00 !important;}
+    a:focus, a:hover {color: #d88500;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #d88500;}
+    .older-posts:hover, .newer-posts:hover {color: #d88500;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kenan-rhoton.github.io">One True Way</a></h1>
+	
+	
+	<h1 class="blog-subtitle">The different approaches to development</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">When Should I Use Go?</h1>
+        <div class="post-meta">
+            <time datetime="19 May 2017">
+                19 May 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p><a href="https://github.com/golang/go">Go</a> is a language that many people (yet not enough) are talking about.</p>
+
+<p>Yes, it has the interesting origin of basically being designed by Google to solve Google&rsquo;s problems.
+Yes, it looks at first glance like C with some random syntax changes.
+And yes, why do you need to learn a new language to do the things you already know how to do?</p>
+
+<p>But every language has its place, and today we&rsquo;re going to look at this beautiful construct (all languages are beautiful, really, except Javascript) and try to find the answer to the question of <em>When to Use Go</em>.</p>
+
+<p>And it all starts with another question:</p>
+
+<h2 id="what-is-go">What is Go?</h2>
+
+<p>Go is a compiled language that strongly inherits from Alef and C.
+However, it makes a special emphasis in some very interesting aspects:</p>
+
+<ul>
+<li>Simplicity</li>
+<li>Fast compilation</li>
+<li>Package management</li>
+<li>Channel-based concurrency</li>
+<li>Statically link everything</li>
+<li>Code Clarity</li>
+</ul>
+
+<h3 id="simplicity">Simplicity</h3>
+
+<p>The first thing to understand about Go is that it is stupidly easy to learn.
+Anyone with any programming experience can learn it at a competent level in under a week.</p>
+
+<p>This is in great part to the amazing amount of emphasis the Golang team have put on a clear language.</p>
+
+<p>For example, here is an excerpt from a random repo I&rsquo;ve been contributing to:</p>
+
+<pre><code>  func InvertColorMap() {
+    re := regexp.MustCompile(&quot;.*.fg&quot;)
+    for k, _ := range ColorMap {
+        if re.FindAllString(k, 1) != nil {
+            ColorMap[k] = ui.ColorBlack
+        }
+    }
+    ColorMap[&quot;par.text.hi&quot;] = ui.ColorWhite
+  }
+</code></pre>
+
+<p>It doesn&rsquo;t really take a rocket scientist to realize that this code simply does:</p>
+
+<ul>
+<li>Declare a function InvertColorMap with no arguments that does the following:
+
+<ol>
+<li>Make a regexp for things ending in &ldquo;.fg&rdquo;</li>
+<li>Iterate the keys of a <strong>ColorMap</strong> thing.</li>
+<li>Find All Strings that match the <strong>Regex</strong> in the Key and if not nil, set that <strong>ColorMap</strong> key to ui.ColorBlack</li>
+<li>Finally, set the specific key of &ldquo;par.text.hi&rdquo; in <strong>ColorMap</strong> to White</li>
+</ol></li>
+</ul>
+
+<p>Congratulations, you apparently already know Golang.</p>
+
+<h3 id="fast-compilation">Fast Compilation</h3>
+
+<p>Golang compiles <em>fast</em>. And I don&rsquo;t mean the &ldquo;Just one cup of coffe&rdquo; kind of fast. I mean &ldquo;are you sure this isn&rsquo;t just plain C&rdquo; fast.</p>
+
+<p>As an example I timed the compilation of <a href="https://github.com/revel/revel">Revel</a>, one of the main Web Frameworks for Go (which is awesome, by the way) and the compilation took less than a second (specifically 0.879s of real time).</p>
+
+<p>Granted, it&rsquo;s not the hugest app I could find, but it&rsquo;s a good representation I feel of a <em>useful app</em>.</p>
+
+<p>As a bigger example, I also compiled the go compiler and its tools, and it took just 8m 20.068s, and about 40% of that was running the tests.</p>
+
+<p>So if you care for fast compilation times, Go has your back, bro.</p>
+
+<h3 id="package-management">Package Management</h3>
+
+<p>Go has started a great trend</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/when-should-i-use">When Should I Use </a>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/go">Go </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=When%20Should%20I%20Use%20Go%3f&url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fgo%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fgo%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fgo%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://kenan-rhoton.github.io/img/avatar.jpg)"></div>
+    <h4>Kenan Rhoton</h4>
+    <p class="bio">programmer - blogger</p>
+    <p class="meta">
+      
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/kenan-rhoton" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kenan-rhoton.github.io/js/index.js"></script>
+<script src="https://kenan-rhoton.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

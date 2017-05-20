@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>When Should I Use on One True Way</title>
+    <link>https://kenan-rhoton.github.io/tags/when-should-i-use/</link>
+    <description>Recent content in When Should I Use on One True Way</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Fri, 19 May 2017 16:41:02 +0200</lastBuildDate>
+    
+	<atom:link href="https://kenan-rhoton.github.io/tags/when-should-i-use/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>When Should I Use Go?</title>
+      <link>https://kenan-rhoton.github.io/post/wsiu/go/</link>
+      <pubDate>Fri, 19 May 2017 16:41:02 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/post/wsiu/go/</guid>
+      <description>Go is a language that many people (yet not enough) are talking about.
+Yes, it has the interesting origin of basically being designed by Google to solve Google&amp;rsquo;s problems. Yes, it looks at first glance like C with some random syntax changes. And yes, why do you need to learn a new language to do the things you already know how to do?
+But every language has its place, and today we&amp;rsquo;re going to look at this beautiful construct (all languages are beautiful, really, except Javascript) and try to find the answer to the question of When to Use Go.</description>
+    </item>
+    
+  </channel>
+</rss>
