@@ -139,7 +139,18 @@ Anyone with any programming experience can learn it at a competent level in unde
 
 <h3 id="package-management">Package Management</h3>
 
-<p>Go has started a great trend</p>
+<p>Go has taken the trend started by Python&rsquo;s <code>pip</code> and Ruby&rsquo;s <code>gem</code>, and integrated the package management system into the standard toolchain in the form of <code>go get</code>.</p>
+
+<p>This is, IMO a fantastic thing, as there is a standard way of organizing your dependencies. However, <code>go get</code> is not without its caveats:</p>
+
+<ul>
+<li><code>go get</code> kinda forces you into a monorepo, where your code is always located in <code>$GOPATH/src/github.com/kenan-rhoton/foo-project</code> or similar.</li>
+<li>It encourages a philisophy of always using the latest version of dependencies, which I find a good thing, but most people dont. You can opt out of that by vendoring the dependencies, but it&rsquo;s kinda ugly.</li>
+</ul>
+
+<p>Some solutions have appeared that target these problems, chief among them is <a href="https://github.com/Masterminds/glide">Glide</a>, which essentially makes vendoring easy.</p>
+
+<p>In most cases, though, this means that the only step to build a project is <code>go get -u github.com/user/repo</code>, which will automatically fetch the project and its dependencies, build it and install its binary (if any) into $GOPATH/bin.</p>
 
     </section>
 
