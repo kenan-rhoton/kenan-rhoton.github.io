@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on One True Way</title>
+    <link>https://kenan-rhoton.github.io/tags/rust/</link>
+    <description>Recent content in Rust on One True Way</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sat, 20 May 2017 10:18:05 +0200</lastBuildDate>
+    
+	<atom:link href="https://kenan-rhoton.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>When Should I Use Rust?</title>
+      <link>https://kenan-rhoton.github.io/post/wsiu/rust/</link>
+      <pubDate>Sat, 20 May 2017 10:18:05 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/post/wsiu/rust/</guid>
+      <description>Rust is an amazing language.
+True, I say every language is amazing (although begrudgingly with JavaScript), so that may not mean much, but Rust is something special.
+It&amp;rsquo;s a language I could imagine replacing C.
+And I don&amp;rsquo;t say that lightly, I&amp;rsquo;m Mr. CFanBoy. C has been in my Top 5 Languages a Developer Needs to Know list longer than any other, and the unofficial number 1 in my heart.</description>
+    </item>
+    
+  </channel>
+</rss>

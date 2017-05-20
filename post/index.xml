@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
-    <lastBuildDate>Fri, 19 May 2017 16:41:02 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 20 May 2017 10:18:05 +0200</lastBuildDate>
     
 	<atom:link href="https://kenan-rhoton.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>When Should I Use Rust?</title>
+      <link>https://kenan-rhoton.github.io/post/wsiu/rust/</link>
+      <pubDate>Sat, 20 May 2017 10:18:05 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/post/wsiu/rust/</guid>
+      <description>Rust is an amazing language.
+True, I say every language is amazing (although begrudgingly with JavaScript), so that may not mean much, but Rust is something special.
+It&amp;rsquo;s a language I could imagine replacing C.
+And I don&amp;rsquo;t say that lightly, I&amp;rsquo;m Mr. CFanBoy. C has been in my Top 5 Languages a Developer Needs to Know list longer than any other, and the unofficial number 1 in my heart.</description>
+    </item>
     
     <item>
       <title>When Should I Use Go?</title>
@@ -20,7 +32,7 @@
       <guid>https://kenan-rhoton.github.io/post/wsiu/go/</guid>
       <description>Go is a language that many people (yet not enough) are talking about.
 Yes, it has the interesting origin of basically being designed by Google to solve Google&amp;rsquo;s problems. Yes, it looks at first glance like C with some random syntax changes. And yes, why do you need to learn a new language to do the things you already know how to do?
-But every language has its place, and today we&amp;rsquo;re going to look at this beautiful construct (all languages are beautiful, really, except Javascript) and try to find the answer to the question of When to Use Go.</description>
+But every language has its place, and today we&amp;rsquo;re going to look at this beautiful construct (all languages are beautiful, really, except JavaScript) and try to find the answer to the question of When to Use Go.</description>
     </item>
     
   </channel>

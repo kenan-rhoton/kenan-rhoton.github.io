@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kenan-rhoton.github.io/post/wsiu/rust/</loc>
+    <lastmod>2017-05-20T10:18:05+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kenan-rhoton.github.io/post/wsiu/go/</loc>
     <lastmod>2017-05-19T16:41:02+02:00</lastmod>
   </url>
@@ -20,13 +25,19 @@
   
   <url>
     <loc>https://kenan-rhoton.github.io/</loc>
-    <lastmod>2017-05-19T16:41:02+02:00</lastmod>
+    <lastmod>2017-05-20T10:18:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kenan-rhoton.github.io/post/</loc>
-    <lastmod>2017-05-19T16:41:02+02:00</lastmod>
+    <lastmod>2017-05-20T10:18:05+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kenan-rhoton.github.io/tags/rust/</loc>
+    <lastmod>2017-05-20T10:18:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -38,7 +49,7 @@
   
   <url>
     <loc>https://kenan-rhoton.github.io/tags/when-should-i-use/</loc>
-    <lastmod>2017-05-19T16:41:02+02:00</lastmod>
+    <lastmod>2017-05-20T10:18:05+02:00</lastmod>
     <priority>0</priority>
   </url>
   
