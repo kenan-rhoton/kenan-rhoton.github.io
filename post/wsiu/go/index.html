@@ -152,6 +152,39 @@ Anyone with any programming experience can learn it at a competent level in unde
 
 <p>In most cases, though, this means that the only step to build a project is <code>go get -u github.com/user/repo</code>, which will automatically fetch the project and its dependencies, build it and install its binary (if any) into $GOPATH/bin.</p>
 
+<h3 id="channel-based-concurrency">Channel-Based Concurrency</h3>
+
+<p>Here we can see a big part of its Alef influence: channels.</p>
+
+<p>The &ldquo;Go way&rdquo; of doing concurrency is to simply launch a &ldquo;goroutine&rdquo; and communicate with it through blocking channels.</p>
+
+<p>A quick example, since Go tends to be easier to understand by actually looking at code:</p>
+
+<pre><code>import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    c := make(chan string)
+    go func(i chan string) {
+        i &lt;- &quot;Hello, World!&quot;
+    }(c)
+    fmt.Println(&lt;-c)
+}
+</code></pre>
+
+<p>That is a complete Hello World program with concurrency.</p>
+
+<p>Another cool feature in golang is that, although reading and writing to a channel is, in general, blocking, one can do a nonblocking read using the <code>select</code> construct:</p>
+
+<pre><code>select {
+    case res := &lt;-i:
+        fmt.Println(res)
+    default:
+        fmt.Println(&quot;Received nothing yet!&quot;)
+}
+</code></pre>
+
     </section>
 
     
