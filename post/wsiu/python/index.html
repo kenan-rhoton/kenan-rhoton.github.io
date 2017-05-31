@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>When Should I Use Python? &middot; One True Way</title>
+    <meta name="author" content="Kenan Rhoton">
+    <meta name="description" content="A blog where we discuss the Way of doing things">
+    <meta name="generator" content="Hugo 0.22-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://kenan-rhoton.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/screen.css">
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #ff9d00;}
+    .pagination a {color: #ff9d00;}
+    .gist .gist-file .gist-meta a:visited {color: #ff9d00 !important;}
+    a:focus, a:hover {color: #d88500;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #d88500;}
+    .older-posts:hover, .newer-posts:hover {color: #d88500;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kenan-rhoton.github.io">One True Way</a></h1>
+	
+	
+	<h1 class="blog-subtitle">The different approaches to development</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">When Should I Use Python?</h1>
+        <div class="post-meta">
+            <time datetime="27 May 2017">
+                27 May 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p><a href="https://python.org">Python</a> is a beautiful language.</p>
+
+<p>Every language does have some kind of beauty to it (except for perhaps JavaScript), but Python really drives home the message that simplicity can be powerful.</p>
+
+<p>It&rsquo;s also incredibly deep, and it is probably the oldest designed language from the tribe of &ldquo;We can make programming a creative experience.&rdquo;</p>
+
+<p>Python is also a very flexible language, which uses dynamic typing to a great effect and allows you to mix programming paradigms in a natural way.</p>
+
+<p>And it introduced me to the amazing concept of Test Driven Development, due to how much emphasis is made on it (and how much tooling there is) in the Python world, especially thanks to Django.</p>
+
+<p>But let&rsquo;s get down to business&hellip;</p>
+
+<h2 id="what-is-python">What is Python</h2>
+
+<p>Python is a programming language that really treats programming like an art.</p>
+
+<p>With an emphasis on beautiful, simple, sparse, readable and practical code, it, along with <a href="https://github.com/golang/go">Go</a>, are the two languages in which I truly believe I could just give some random (but well-written) code to someone with no idea whatsoever of the language and it would be understood.</p>
+
+<p>It makes a number of surprising choices that actually make a lot of sense (Indentation as Syntax? What!).
+It has a very mature and well thought out set of functionalities.</p>
+
+<p>It is a joy to program in Python, really.</p>
+
+<p>I think that, as a developer, there are some specific things to understand about Python.</p>
+
+<ol>
+<li>The Syntax is simple and very readable</li>
+<li>You have the power to do anything</li>
+<li>External libraries for the rest</li>
+<li>You will develop <em>fast</em></li>
+<li>Great documentation</li>
+<li>It will be fun</li>
+<li>Objective and Functional</li>
+</ol>
+
+<h3 id="the-python-syntax">The Python Syntax</h3>
+
+<pre><code>import re
+
+with open('somefile.txt', 'r') as f:
+    for line in sorted(f):
+        if re.search(&quot;potato&quot;, line):
+            print(line, end='')
+</code></pre>
+
+<p>Look at this code. Just <em>look</em> at it.</p>
+
+<p>Even if you&rsquo;ve never heard of Python it&rsquo;s pretty simple to understand that it:</p>
+
+<ol>
+<li>Imports the &ldquo;re&rdquo; module</li>
+<li>Opens a file as <strong>f</strong></li>
+<li>Iterates over the sorted lines</li>
+<li>Prints any line containing &ldquo;potato&rdquo;</li>
+</ol>
+
+<p>It all feels very natural and at the same time it&rsquo;s not at all limiting.
+You can both be very precise and very readable with Python&rsquo;s syntax.</p>
+
+<p>Also, although this is more a matter of opinion, I think indentation as part of the syntax is genius: everyone indents their code anyway. And for the whole &ldquo;tabs vs spaces&rdquo; arguments, you just need to agree on a code formatter and be done with it.</p>
+
+<h3 id="python-power">Python Power!</h3>
+
+<p>This would be an amazing name for a new Anime about Mutant Robosnakes.</p>
+
+<p>But back to programming, Python is one of the languages with the most extensive and robust standard libraries that I know of.</p>
+
+<p>In fact, the typical Python app doesn&rsquo;t have that many external dependencies other than whatever the framework you&rsquo;re using requires.</p>
+
+<p>Everything from advanced math to crypto to compression to emailing to files and persistence (even sqlite3!) is baked into the standard library for you to import.</p>
+
+<p>Frankly, the main reason for external dependencies is mostly &ldquo;I could do that, but since someone else already did it I may as well use it&rdquo;.</p>
+
+<p>It really is amazing just how <em>easy</em> it is to build a complex system in Python.</p>
+
+<p>Also, a very big thing I find in Python is that it is easy to implement both Object Oriented and Functional solutions, with a versatility that is hard to replicate in other languages (<a href="https://www.ruby-lang.org">Ruby</a> tries, though)</p>
+
+<h3 id="external-libraries">External libraries</h3>
+
+<p>Python is a very mature language.</p>
+
+<p>This means that there are libraries for pretty much anything you can think of.</p>
+
+<p>UI? <a href="https://docs.python.org/3.6/library/tkinter.html">Library</a>. Web Framework? <a href="https://www.djangoproject.com/">Library</a>. Machine Learning? <a href="https://github.com/tensorflow/tensorflow">Library</a>. YouTube video downloader? <a href="https://pypi.python.org/pypi/youtube_dl/2017.5.29">Library</a>. ASCII Cats? I don&rsquo;t know why but there&rsquo;s a <a href="https://pypi.python.org/pypi/cats/0.2.0">Library</a> for that too.</p>
+
+<p>So this means it&rsquo;s actually very hard to come upt with a project idea where you will truly be &ldquo;on your own&rdquo; in Python, which is a great thing.</p>
+
+<h3 id="fast-development">Fast development</h3>
+
+<p>Developing in Python is <em>fast</em>.</p>
+
+<p>It is amazing just how intuitive, expressive yet powerful the language can be, and the amount of content in the standard library and external ones helps to not have to reinvent the wheel and focus on the problem.</p>
+
+<p>I also think its readability comes again with a lot of strength, as it is SO much easier to collaborate when you can easily understand what others have done.</p>
+
+<p>This, coupled with <strong>very</strong> smart decisions when it comes to how things are implemented, makes for a very natural development flow that produces results much quicker than many other languages.</p>
+
+<h3 id="the-docs">The docs</h3>
+
+<p>The documentation is <em>amazing</em>.</p>
+
+<p>Part of this really comes with being a mature language, but seriously, both the <a href="https://docs.python.org/3/library/">Standard Library</a> and everything else is very extensively documented.</p>
+
+<p>Really, I think at this point, pretty much every single doubt you could possibly have with the language is either documented somewhere or is answered on <a href="https://stackoverflow.com/">StackOverflow</a></p>
+
+<h3 id="fun-fun-fun">Fun, Fun, Fun!</h3>
+
+<p>Python programming is fun!</p>
+
+<p>Ok, this is completely subjective, I confess, but I&rsquo;ve heard it from multiple people (which has next to zero statistical value): Python is <em>fun</em>.</p>
+
+<p>I think that the main reason for this is that it is so fast to go from <strong>zero</strong> to <strong>Prototype One</strong> that it simply <em>feels satisfying</em>.</p>
+
+<p>And really, a happy developer is a better developer.</p>
+
+<h3 id="objective-and-functional">Objective and Functional</h3>
+
+<p>The final aspect I want to touch on is how easy it is to use whatever programming paradigm you want to in Python.</p>
+
+<p>Are you a Brave Clojurist who thinks only in pure functions? Python can do it. Do you need to create a Class with all sorts of overloading shenanigans? Python can do it.</p>
+
+<p>This flexibility is part of what makes Python great: you are free to code in the <strong>best way you can</strong>.</p>
+
+<h2 id="what-does-python-suck-at">What does Python suck at?</h2>
+
+<p>So, we have a robust, versatile, easy, practical language. Where&rsquo;s the catch?</p>
+
+<p>Like every other language, Python is not the perfect solution to every single problem.
+And in fact it has some serious caveats as well as some minor deficiencies.</p>
+
+<p>To be concise, we&rsquo;ll name the most prominent.</p>
+
+<ol>
+<li>Not the fastest car in the race</li>
+<li>Wait, there&rsquo;s Python 2 and 3?</li>
+<li>__init__ and other fun things</li>
+</ol>
+
+<h3 id="speed-of-a-camel">Speed of a camel</h3>
+
+<p>So Python is not the fastest language ever.
+It&rsquo;s really more like &ldquo;trying not to be last&rdquo; in that regard.</p>
+
+<p>Thankfully, that doesn&rsquo;t mean it&rsquo;s <em>terribly</em> slow, but clearly if you need to develop some very time-critical software, you should look elsewhere.</p>
+
+<p>Like a camel though, it&rsquo;s stable and lasts long, so it&rsquo;s very decent for things like Web Server Backends, where really, the net latency renders Python&rsquo;s response time irrelevant.</p>
+
+<p>But you won&rsquo;t be developing the next Real-Time Physics Engine for a AAA game in Python anytime soon&hellip;</p>
+
+<h3 id="python-2-vs-python-3">Python 2 vs Python 3</h3>
+
+<p>This surprisingly is still a problem, even thought you&rsquo;d think that it&rsquo;d be clear that people should just use Python 3 because the number is bigger (No one is using Java 5 anymore, right? Right?).</p>
+
+<p>Python 3 was released in 2008, so the excuse of &ldquo;X library is only in Python 2&rdquo; is increasingly becoming less credible. I mean, there&rsquo;s a 99% chance that an equivalent Library exists for Python 3 and you&rsquo;re just lazy.</p>
+
+<h3 id="those-weird-underscores">Those weird underscores</h3>
+
+<p>Why exactly is the function to auto-convert a class to a string called &ldquo;__str__&rdquo;?. Why does prepending a variable with double underscore have a special meaning in a class? For that matter, why do I need to create an empty __init__.py file to make my project into a package.</p>
+
+<p>These and other mysterious questions have been very annoying to people who, sure, found the answer to whatever they were looking for quite quickly upon searching, and then groaned loudly.</p>
+
+<p>Because let&rsquo;s be honest, that&rsquo;s not the most intuitive and readable thing&hellip;</p>
+
+<h2 id="so-when-should-i-use-python">So&hellip; When Should I Use Python?</h2>
+
+<p>Yes, Python is hard to live without.</p>
+
+<p>Obviously the first thing to consider is if your project has high execution speed requirements, which is the first aspect that Python flunks.</p>
+
+<p>Secondly, it&rsquo;s a language that just doesn&rsquo;t reach a true low level in any case, so for some &ldquo;necessarily-low-level&rdquo; things (such as drivers) you can&rsquo;t really consider it.</p>
+
+<p>However, it is a <em>great</em> language for any team projects because of its readability. And because it is very robust, it&rsquo;s a great choice for companies. I mean, it&rsquo;s one of Google&rsquo;s official languages for development. That says something.</p>
+
+<p>And its development speed is also a great plus for any project that needs to deliver things <em>yesterday</em>.</p>
+
+<p>So Python is your rock. You can&rsquo;t really go wrong with choosing Python.</p>
+
+<p>Just remember the Camel analogy: it&rsquo;s not very fast, but it will get you far.</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/when-should-i-use">When Should I Use </a>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/python">Python </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=When%20Should%20I%20Use%20Python%3f&url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fpython%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fpython%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2fwsiu%2fpython%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://kenan-rhoton.github.io/img/avatar.jpg)"></div>
+    <h4>Kenan Rhoton</h4>
+    <p class="bio">programmer - blogger</p>
+    <p class="meta">
+      
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/kenan-rhoton" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2017 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kenan-rhoton.github.io/js/index.js"></script>
+<script src="https://kenan-rhoton.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

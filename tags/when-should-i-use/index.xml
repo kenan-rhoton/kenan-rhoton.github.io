@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
-    <lastBuildDate>Sat, 20 May 2017 10:18:05 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 27 May 2017 18:18:05 +0200</lastBuildDate>
     
 	<atom:link href="https://kenan-rhoton.github.io/tags/when-should-i-use/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>When Should I Use Python?</title>
+      <link>https://kenan-rhoton.github.io/post/wsiu/python/</link>
+      <pubDate>Sat, 27 May 2017 18:18:05 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/post/wsiu/python/</guid>
+      <description>Python is a beautiful language.
+Every language does have some kind of beauty to it (except for perhaps JavaScript), but Python really drives home the message that simplicity can be powerful.
+It&amp;rsquo;s also incredibly deep, and it is probably the oldest designed language from the tribe of &amp;ldquo;We can make programming a creative experience.&amp;rdquo;
+Python is also a very flexible language, which uses dynamic typing to a great effect and allows you to mix programming paradigms in a natural way.</description>
+    </item>
     
     <item>
       <title>When Should I Use Rust?</title>
