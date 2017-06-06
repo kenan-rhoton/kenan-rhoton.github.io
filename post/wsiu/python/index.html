@@ -204,6 +204,7 @@ And in fact it has some serious caveats as well as some minor deficiencies.</p>
 <li>Not the fastest car in the race</li>
 <li>Wait, there&rsquo;s Python 2 and 3?</li>
 <li>__init__ and other fun things</li>
+<li>Interpreted</li>
 </ol>
 
 <h3 id="speed-of-a-camel">Speed of a camel</h3>
@@ -230,6 +231,16 @@ It&rsquo;s really more like &ldquo;trying not to be last&rdquo; in that regard.<
 <p>These and other mysterious questions have been very annoying to people who, sure, found the answer to whatever they were looking for quite quickly upon searching, and then groaned loudly.</p>
 
 <p>Because let&rsquo;s be honest, that&rsquo;s not the most intuitive and readable thing&hellip;</p>
+
+<h3 id="python-is-interpreted">Python is interpreted</h3>
+
+<p>This one is both a blessing and a curse.</p>
+
+<p>A blessing because it means Python can run on any platform that has an interpreter implemented for it with next to no modification.</p>
+
+<p>A curse because it not only makes the language slower (as discussed) due to its overhead, but it <em>requires</em> your users to have python installed. Which sucks.</p>
+
+<p>This is probably why Python has been mostly used on things that are hidden from the standard user (servers or advanced user apps).</p>
 
 <h2 id="so-when-should-i-use-python">So&hellip; When Should I Use Python?</h2>
 
