@@ -129,7 +129,7 @@ Anyone with any programming experience can learn it at a competent level in unde
 
 <h3 id="fast-compilation">Fast Compilation</h3>
 
-<p>Golang compiles <em>fast</em>. And I don&rsquo;t mean the &ldquo;Just one cup of coffe&rdquo; kind of fast. I mean &ldquo;are you sure this isn&rsquo;t just plain C&rdquo; fast.</p>
+<p>Golang compiles <em>fast</em>. And I don&rsquo;t mean the &ldquo;Just one cup of coffe&rdquo; kind of fast. I mean &ldquo;Are you sure I used the right build command?&rdquo; fast.</p>
 
 <p>As an example I timed the compilation of <a href="https://github.com/revel/revel">Revel</a>, one of the main Web Frameworks for Go (which is awesome, by the way) and the compilation took less than a second (specifically 0.879s of real time).</p>
 
@@ -154,6 +154,10 @@ Anyone with any programming experience can learn it at a competent level in unde
 
 <p>In most cases, though, this means that the only step to build a project is <code>go get -u github.com/user/repo</code>, which will automatically fetch the project and its dependencies, build it and install its binary (if any) into $GOPATH/bin.</p>
 
+<p><strong>Update!</strong></p>
+
+<p>Go is now introducing <a href="https://github.com/golang/go/wiki/Modules">Go Modules</a> so it seems that there will be no true pain points left in this area (I even think they&rsquo;ve surpassed every other package management tool for any language except perhaps Rust&rsquo;s Cargo).</p>
+
 <h3 id="channel-based-concurrency">Channel-Based Concurrency</h3>
 
 <p>Here we can see a big part of its Alef influence: channels.</p>
@@ -168,9 +172,11 @@ Anyone with any programming experience can learn it at a competent level in unde
 
 func main() {
     c := make(chan string)
+
     go func(i chan string) {
         i &lt;- &quot;Hello, World!&quot;
     }(c)
+
     fmt.Println(&lt;-c)
 }
 </code></pre>
@@ -237,6 +243,12 @@ That has got to be good.</p>
 
 <p>So Go is not a language for when you want to develop <em>fast</em>.</p>
 
+<p><strong>Update!</strong></p>
+
+<p>After some further usage and being involved with companies that are working in Go a lot, I now see I was terribly wrong in this point.</p>
+
+<p>It may be that the verbosity of Go (which might be greatly reduced if generics happen) sort of offsets its simplicity and readability <em>when working alone</em>. However, when <strong>working as a team</strong>, these advantages are so great that the development speed is comparable to Python or Ruby, making development with this language a very fast and smooth process.</p>
+
 <h3 id="no-real-gamedev">No real GameDev</h3>
 
 <p>Aside from <a href="https://github.com/azul3d/engine">Azul3d</a> I&rsquo;m not really aware of any true 3D game engines, and it&rsquo;s still a very small project.</p>
@@ -261,24 +273,19 @@ if err != nil {
 
 <p>This is much clunkier than the <code>try/catch</code> paradigm most people are used to, and for some that&rsquo;s enough to just scratch the language.</p>
 
+<p><strong>Update!</strong></p>
+
+<p>This is <a href="https://go.googlesource.com/proposal/+/master/design/go2draft.md">being looked into</a></p>
+
 <h2 id="so-when-should-i-use-go">So&hellip; When should I use Go?</h2>
 
-<p>Go is, I believe, a great &ldquo;default&rdquo; language.</p>
+<p>Go is, I believe, a <strong>great team language</strong>.</p>
 
-<p>What I mean by this is, if you have <em>no real reason</em> to choose a different language, use Go.</p>
+<p>I would reccommend using it if you&rsquo;re beginning any project with more than 4 people and there&rsquo;s no language that they&rsquo;re &ldquo;experts at&rdquo; (like, everyone having 10+ years of Java experience or something).</p>
 
-<p>Reasons can be many, though:</p>
+<p>I also think it&rsquo;s a <strong>great server language</strong>.</p>
 
-<ul>
-<li>I need to touch bare metal! (C, Rust)</li>
-<li>I need to develop faster! (Python, Ruby)</li>
-<li>I need to do very complicated things with concurrency in a distributed environment! (Haskell, Clojure, Elixir)</li>
-<li>I need to make games! (Python, C, C++)</li>
-<li>I need to calculate complex scientific stuff! (Julia, R)</li>
-<li>Etc.</li>
-</ul>
-
-<p>So my verdict for Go is this: use Go whenever you don&rsquo;t need a specific language and you value good code over development speed.</p>
+<p>What I mean is that, if your software requires a lot of concurrency, web connections, and all sorts of other server shenanigans, it is a great choice.</p>
 
     </section>
 
