@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>One True Way</title>
+    <title>Hype-Driven Development</title>
     <link>https://kenan-rhoton.github.io/</link>
-    <description>Recent content on One True Way</description>
+    <description>Recent content on Hype-Driven Development</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sat, 27 May 2017 18:18:05 +0200</lastBuildDate>
     
 	<atom:link href="https://kenan-rhoton.github.io/index.xml" rel="self" type="application/rss+xml" />
