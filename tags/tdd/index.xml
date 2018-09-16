@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tdd on Hype-Driven Development</title>
+    <link>https://kenan-rhoton.github.io/tags/tdd/</link>
+    <description>Recent content in Tdd on Hype-Driven Development</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Sep 2018 15:50:28 +0200</lastBuildDate>
+    
+	<atom:link href="https://kenan-rhoton.github.io/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Let&#39;s talk about TDD</title>
+      <link>https://kenan-rhoton.github.io/post/talk/tdd/</link>
+      <pubDate>Sun, 16 Sep 2018 15:50:28 +0200</pubDate>
+      
+      <guid>https://kenan-rhoton.github.io/post/talk/tdd/</guid>
+      <description>Red Green Refactor Repeat  Test Driven Development, also known as &amp;ldquo;this would be so cool if green started with an R&amp;rdquo;.
+So this new (as in 1957) way of programming has been catching on lately, and I&amp;rsquo;ve had to clarify many points about what TDD is and isn&amp;rsquo;t. I want to talk about some things related to my vision of TDD (which might not be yours, and that&amp;rsquo;s ok).</description>
+    </item>
+    
+  </channel>
+</rss>

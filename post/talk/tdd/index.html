@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Let&#39;s talk about TDD &middot; Hype-Driven Development</title>
+    <meta name="author" content="Kenan Rhoton">
+    <meta name="description" content="The new, the old and the ugly">
+    <meta name="generator" content="Hugo 0.48" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://kenan-rhoton.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/screen.css">
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #ff9d00;}
+    .pagination a {color: #ff9d00;}
+    .gist .gist-file .gist-meta a:visited {color: #ff9d00 !important;}
+    a:focus, a:hover {color: #d88500;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #d88500;}
+    .older-posts:hover, .newer-posts:hover {color: #d88500;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kenan-rhoton.github.io">Hype-Driven Development</a></h1>
+	
+	
+	<h1 class="blog-subtitle">New stuff in Software Development</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Let&#39;s talk about TDD</h1>
+        <div class="post-meta">
+            <time datetime="16 September 2018">
+                16 September 2018
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Refactor</li>
+<li>Repeat</li>
+</ol>
+
+<p><strong>Test Driven Development</strong>, also known as &ldquo;this would be so cool if green started with an R&rdquo;.</p>
+
+<p>So this new (as in 1957) way of programming has been catching on lately, and I&rsquo;ve had to clarify many points about what TDD is and isn&rsquo;t. I want to talk about some things related to <em>my</em> vision of TDD (which might not be yours, and that&rsquo;s ok).</p>
+
+<h1 id="what-does-it-mean">What does it mean?</h1>
+
+<p>Many people say they do TDD, and they do wildly different things from each other. I don&rsquo;t think there is &ldquo;one way&rdquo; to do TDD, but there are a few basics I think we need to consider to truly be able to name something TDD:</p>
+
+<ol>
+<li>Tests before code</li>
+<li>Quick cycles</li>
+<li>Lazy implementation</li>
+</ol>
+
+<h2 id="tests-before-code">Tests before code</h2>
+
+<p>This is the one that at least 95% of people seem to agree on.
+If you&rsquo;re not doing your tests, thinking about how your code will be used, <em>before</em> implementing whatever it is you&rsquo;re doing, you&rsquo;re not doing TDD (and if you&rsquo;re not even doing them afterwards, I would argue you&rsquo;re not even programming, you&rsquo;re just hoping it works).</p>
+
+<h2 id="quick-cycles">Quick cycles</h2>
+
+<p>The whole point of TDD is to Red-Green-Refactor quite quickly.</p>
+
+<p>Ideally most iterations would be about a minute and there would be no poverty or hunger in the world, but in real life, you can usually expect most iterations to be 5 minutes and your alarm bells should start going off if you ever pass 15 minutes.</p>
+
+<h2 id="lazy-implementation">Lazy implementation</h2>
+
+<p>Also known as YAGNI (You Aren&rsquo;t Gonna Need It).</p>
+
+<p>This means only concern yourself with writing the code that you wrote the test for.
+Many times we try to think too far ahead and end up creating excess code that is completely unnecessary and TDD is one way to avoid that.</p>
+
+<h1 id="let-s-talk-about-tdd">Let&rsquo;s talk about TDD</h1>
+
+<p>Now we&rsquo;ve got the basics out of the way and I can talk about a few things that either come up or just plain irk me when discussing the subject.</p>
+
+<h2 id="wat-be-unit">Wat be Unit?</h2>
+
+<p>People tend to say that you write Unit Tests when using TDD.
+I absolutely despise the word <em>Unit</em> in this context.</p>
+
+<p>Why? Take any three programmers, ask them what a Unit is in the context of Unit Testing and you will get <em>at least</em> seven different answers, which may or may not include:</p>
+
+<ol>
+<li>A single method on a class</li>
+<li>A pure function</li>
+<li>A class</li>
+<li>A single set of responsibilities</li>
+<li>A single API entry point</li>
+<li>The smallest logical unit of code</li>
+<li>Anything requiring no imports to be run</li>
+<li>Code that runs in under X milliseconds</li>
+<li>&hellip;</li>
+</ol>
+
+<p>I would not have a problem with this if people weren&rsquo;t so crazy adamant about how every test should follow their definition of Unit.</p>
+
+<p>So let&rsquo;s please just agree that the name is stupid and let&rsquo;s try to be less ambiguous and maybe call them something like Programmer-Oriented Tests or some other thing (I take suggestions)</p>
+
+<h2 id="test-driven-refactoring">Test-Driven Refactoring</h2>
+
+<p>A lot of people think it&rsquo;s too late to start doing TDD when the big ball of mud is large enough.
+However, in my experience, TDD is <em>the best tool ever</em> to &ldquo;break the monolith&rdquo; and start refactoring things to be sensible.</p>
+
+<p>Just because you don&rsquo;t have tests doesn&rsquo;t mean you can&rsquo;t start making some and refactor as you go. It&rsquo;s usually less painful than the &ldquo;stop everything and refactor&rdquo; approach (which I&rsquo;ve only seen be successful once and I&rsquo;m still impressed it even worked).</p>
+
+<h2 id="tests-after-code">Tests after code</h2>
+
+<p>Some people prefer to do their tests after their code.
+My reaction is usually &ldquo;but why, though?&rdquo;</p>
+
+<p>Testing after the implementation is weird.
+It&rsquo;s defining the problem once you already have a solution.
+If you&rsquo;re going to take the time to write tests anyway, do them first and reap the benefits, right?</p>
+
+<h2 id="tooling">Tooling</h2>
+
+<p>You don&rsquo;t need tooling to do TDD.
+You just need <code>assert</code>.
+And if you&rsquo;re language doesn&rsquo;t have <code>assert</code>&hellip;</p>
+
+<pre><code>function assert(condition) {
+    if (condition) raise Exception
+}
+</code></pre>
+
+<p>Boom. Assert.</p>
+
+<h1 id="end">End?</h1>
+
+<p>So I guess this was just kind of a bunch of random disconnected thoughts dumped here with zero regard for drawing any conclusions, but I hope it will someday be helpful to someone to have this here.</p>
+
+<p>Please feel free to open an issue at my <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a> if you think I should add or change anything!</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/lets-talk-about">Let&#39;s talk about </a>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/tdd">TDD </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=Let%27s%20talk%20about%20TDD&url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2ftdd%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2ftdd%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2ftdd%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://kenan-rhoton.github.io/img/avatar.jpg)"></div>
+    <h4>Kenan Rhoton</h4>
+    <p class="bio">programmer - blogger</p>
+    <p class="meta">
+      
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/kenan-rhoton" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kenan-rhoton.github.io/js/index.js"></script>
+<script src="https://kenan-rhoton.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>
