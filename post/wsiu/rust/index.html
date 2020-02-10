@@ -7,7 +7,7 @@
     <title>When Should I Use Rust? &middot; Hype-Driven Development</title>
     <meta name="author" content="Kenan Rhoton">
     <meta name="description" content="The new, the old and the ugly">
-    <meta name="generator" content="Hugo 0.48" />
+    <meta name="generator" content="Hugo 0.64.0" />
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -64,34 +64,19 @@
     </header>
 
     <section class="post-content">
-        
-
-<p><strong>DISCLAIMER</strong>: <em>I don&rsquo;t claim to be an expert on this language, so I may have made mistakes. If there is anything you would say differently or anything that is just plain wrong, please open an issue on <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a></em></p>
-
+        <p><strong>DISCLAIMER</strong>: <em>I don&rsquo;t claim to be an expert on this language, so I may have made mistakes. If there is anything you would say differently or anything that is just plain wrong, please open an issue on <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a></em></p>
 <p><a href="https://github.com/rust-lang/rust">Rust</a> is an amazing language.</p>
-
 <p>True, I say every language is amazing (although begrudgingly with JavaScript), so that may not mean much, but Rust is something special.</p>
-
 <p>It&rsquo;s a language I could imagine replacing C.</p>
-
 <p>And I don&rsquo;t say that lightly, I&rsquo;m Mr. CFanBoy. C has been in my <strong>Top 5 Languages a Developer Needs to Know</strong> list longer than any other, and the unofficial number 1 in my heart.</p>
-
 <p>But Rust just does everything that C does, except <em>safer</em>. It helps so much to finally have a good low level programming language without worrying every single moment of my life about the dreaded <code>Segmentation Fault</code>.</p>
-
 <p>But enough of that, let&rsquo;s get into it&hellip;</p>
-
 <h2 id="what-is-rust">What is Rust?</h2>
-
 <p>Rust is a language that will confuse you if you&rsquo;ve never touched ML-based languages, because it seems so similar to C but things tend to not compile if you do them 100% &ldquo;the C way&rdquo;.</p>
-
 <p>This is because Rust has taken influence from a weird set of languages, such as C, Haskell and OCaml.</p>
-
 <p>But aside from semantics and syntax, Rust focuses on a <em>safe, concurrent, practical</em> language.</p>
-
 <p>Once again, just like in <a href="https://github.com/golang/go">Go</a>, Rust prevents us from really screwing up memory unless we really want to. But then we have to mark the code as <code>unsafe</code>.</p>
-
 <p>Since Rust is kind enough to write down their greatest features in their website, we will talk about them one by one:</p>
-
 <ol>
 <li>zero-cost abstractions</li>
 <li>move semantics</li>
@@ -103,150 +88,87 @@
 <li>minimal runtime</li>
 <li>efficient C bindings</li>
 </ol>
-
 <h3 id="zero-cost-abstractions">Zero-Cost Abstractions</h3>
-
 <p>Rust attempts to obey the C++ mantra:</p>
-
 <blockquote>
 <p>C++ implementations obey the zero-overhead principle: What you don’t use, you don’t pay for [Stroustrup, 1994]. And further: What you do use, you couldn’t hand code any better.</p>
-
 <p>– Stroustrup</p>
 </blockquote>
-
 <p>And it succeeds beautifully thanks to <strong>Traits</strong>.</p>
-
 <p>Traits are essentially Interfaces, ways to define a certain number of expected behaviours that a Type complies with. And since they are compiled away, this means that, very much like C++, any calls to a Trait method are zero-cost.</p>
-
 <p>However they are also types and can be used as an element in a struct through indirection if you need to dynamically call a method for an type unknown at compile time.</p>
-
 <p>So somehow, Rust has managed to actually get the best of both worlds here&hellip;</p>
-
 <h3 id="move-semantics">Move Semantics</h3>
-
 <p>This is a weird one for people not used to the idea: in Rust you usually move rather than copy values.</p>
-
 <p>This means that this would result in a compiler error:</p>
-
 <pre><code>let v = Box::new(5);
 println!(&quot;{}&quot;, v);
 let v2 = v;
 println!(&quot;{}&quot;, v);
 </code></pre>
-
 <p>Why? Because v has been moved to v2 and you can no longer use v.</p>
-
 <p>Now that seems annoying, right? But don&rsquo;t worry! If you need to just lend a value instead of move it completely, you can just do a &ldquo;borrow&rdquo; by instead using <code>&amp;v</code>.
 And if you need to be able to modify the value, use <code>&amp;mut v</code>.</p>
-
 <p>What this entails is that we can always know where we can access a variable from, which is the key that brings us to our next section:</p>
-
 <h3 id="guaranteed-memory-safety">Guaranteed Memory Safety</h3>
-
 <p>Read that again. Guaranteed. Memory. Safety. It&rsquo;s ok if you cry a little.</p>
-
 <p>If that didn&rsquo;t blow your mind, this will: Rust uses no Garbage Collection.
 And this, like many of the beautiful things of rust, is due to the move semantics.</p>
-
 <p>It&rsquo;s simple, values can be moved or borrowed, but once they live out their scope, they are destroyed. Period.</p>
-
 <p>At first it can sound scary, but really, it just means that whenever you want a value to be in a certain scope, you just move it there.</p>
-
 <p>It also means that for 99% of things you won&rsquo;t need to ever create a Close or Destroy function :)</p>
-
 <h3 id="threads-without-data-races">Threads Without Data Races</h3>
-
 <p>Again Move Semantics to the rescue! Since a value can only be owned by a single scope (and thus a single thread), there are no ownership problems, but that&rsquo;s not all!</p>
-
 <p>Remember <code>&amp;v</code> and <code>&amp;mut v</code>? Well, at compile time Rust makes sure that there can never exist a <code>&amp;mut v</code> (read/write) reference when there is ANY other kind of reference to the object. However, any number of <code>&amp;v</code> (read) references can coexist.</p>
-
 <p>This mean no race conditions. Whoa.</p>
-
 <h3 id="trait-based-generics">Trait-based generics</h3>
-
 <p>We already touched on this, but the key here is very simple: you can use Traits as Types that satisfy an Interface. Which means that you can declare a function for all of those Types at once.</p>
-
 <p>For example:</p>
-
 <pre><code>fn print_hash&lt;T: Hash&gt;(t: &amp;T) {
     println!(&quot;The hash is {}&quot;, t.hash())
 }
 </code></pre>
-
 <p><code>t</code> can be a borrow (note the <code>&amp;</code>) of any Type which implements the Hash Trait.</p>
-
 <h3 id="pattern-matching">Pattern matching</h3>
-
 <p>Everything is an expression in Rust. This mean this is valid code:</p>
-
 <pre><code>let (x, y, z) = (5, &quot;Potatoes&quot;, false);
 </code></pre>
-
 <p>And that you can declare functions such as:</p>
-
 <pre><code>fn compare_hash&lt;T: Hash&gt;(t: &amp;T, t2: &amp;T) -&gt; bool
 </code></pre>
-
 <p>Where, you guessed right, not only do both t and t2 need to implement Hash, but they must be the same Type.</p>
-
 <h3 id="minimal-runtime">Minimal runtime</h3>
-
 <p>Rust is built on LLVM and it&rsquo;s optimized like crazy. All those weird rules about moving and borrowing, and the way Traits work allow the runtime to be a very efficient thing that pretty much needs to do nothing but some initialization setting up a heap, some guards and backtraces.</p>
-
 <p>This means Rust is stupidly fast. C-levels of fast. Like whoa.</p>
-
 <h3 id="efficient-c-bindings">Efficient C bindings</h3>
-
 <p>Rust is not here to displace C, although it very well might.</p>
-
 <p>The truth is that, especially at low level, most things are C. So interfacing correctly with C is a must, really, if you want to be compatible with the existent way of doing things.</p>
-
 <p>This also means that it&rsquo;s simple to make a Rust extension to a C application, and so I feel like transitioning things from C to Rust is quite a nice process. <a href="https://lists.torproject.org/pipermail/tor-dev/2017-March/012088.html">Tor</a> is doing it :)</p>
-
 <h2 id="what-does-rust-suck-at">What does Rust suck at?</h2>
-
 <p>All languages are amazing, but I&rsquo;ve yet to find one that is perfect, and Rust is no exception.</p>
-
 <p>Although its problem are not as glaring as other programming languages which may or may not be called JavaScript, they still exist and must be considered:</p>
-
 <ol>
 <li>Rust is hard to learn and master</li>
 <li>Rust is young and doesn&rsquo;t have as many libraries as you&rsquo;d want</li>
 <li>Not really for the web</li>
 </ol>
-
 <h3 id="hard-to-learn-and-master">Hard to Learn and Master</h3>
-
 <p>Unless you&rsquo;re lucky (or crazy) enough to already be profficient in an ML language, a C language and a functional language, chances are Rust is gonna look downright weird to you.</p>
-
 <p>You will probably take a couple of months until you finally stop being surprised at random compiler errors for things that you&rsquo;re <em>sure</em> should be working.</p>
-
 <p>This also means you have to be reasonably sure you actually want to use Rust for something before getting on to learn it&hellip;</p>
-
 <p>However, you really should learn Rust anyway, so get on it!</p>
-
 <h3 id="not-enought-libraries">Not enought Libraries!</h3>
-
 <p>The language is young, still, so this will probably be a nonissue in a few years, and a large number of libraries are appearing every day (in part thanks to <a href="https://github.com/redox/redox">Redox</a>, a complete functional OS written in Rust. Yes, I said an OS).</p>
-
 <p>The fact remains that Rust is still in its infancy, and some things just aren&rsquo;t available. You probably can&rsquo;t reasonably create a TripleA game in Rust (yet).</p>
-
 <p>So if you&rsquo;re building something complex, that might turn you away, although you should consider contributing libraries yourself! :)</p>
-
 <h3 id="not-for-the-web">Not for the web</h3>
-
 <p>Yes, <a href="https://github.com/iron/iron/">Iron</a> exists. You technically CAN develop a Web App in Rust. But really, should you? It&rsquo;s not designed for it. At all.</p>
-
 <p>And this is probably its greatest problem nowadays, since 90% of everything being done is in the Web&hellip;</p>
-
 <h2 id="so-when-should-i-use-rust">So&hellip; When should I use Rust?</h2>
-
 <p>If you need to create a fast, robust, complex app, Rust has your back.</p>
-
 <p>Need a new accounting program? Rust.
 Something to coordinate signals between different programs? Rust.
 A driver for that new piece of hardware your company has been building? Rust, please, the world will thank you for it.</p>
-
 <p>Rust: the safe, fast, concurrent language.</p>
 
     </section>
@@ -314,7 +236,7 @@ A driver for that new piece of hardware your company has been building? Rust, pl
       
   </section>
 
-		<section class="copyright">&copy; 2018 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+		<section class="copyright">&copy; 2020 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
 	</div>
 </footer>
 

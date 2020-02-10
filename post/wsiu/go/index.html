@@ -7,7 +7,7 @@
     <title>When Should I Use Go? &middot; Hype-Driven Development</title>
     <meta name="author" content="Kenan Rhoton">
     <meta name="description" content="The new, the old and the ugly">
-    <meta name="generator" content="Hugo 0.48" />
+    <meta name="generator" content="Hugo 0.64.0" />
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -64,25 +64,16 @@
     </header>
 
     <section class="post-content">
-        
-
-<p><strong>DISCLAIMER</strong>: <em>I don&rsquo;t claim to be an expert on this language, so I may have made mistakes. If there is anything you would say differently or anything that is just plain wrong, please open an issue on <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a></em></p>
-
+        <p><strong>DISCLAIMER</strong>: <em>I don&rsquo;t claim to be an expert on this language, so I may have made mistakes. If there is anything you would say differently or anything that is just plain wrong, please open an issue on <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a></em></p>
 <p><a href="https://github.com/golang/go">Go</a> is a language that many people (yet not enough) are talking about.</p>
-
 <p>Yes, it has the interesting origin of basically being designed by Google to solve Google&rsquo;s problems.
 Yes, it looks at first glance like C with some random syntax changes.
 And yes, why do you need to learn a new language to do the things you already know how to do?</p>
-
 <p>But every language has its place, and today we&rsquo;re going to look at this beautiful construct (all languages are beautiful, really, except JavaScript) and try to find the answer to the question of <em>When to Use Go</em>.</p>
-
 <p>And it all starts with another question:</p>
-
 <h2 id="what-is-go">What is Go?</h2>
-
 <p>Go is a compiled language that strongly inherits from Alef and C.
 However, it makes a special emphasis in some very interesting aspects:</p>
-
 <ul>
 <li>Simplicity</li>
 <li>Fast compilation</li>
@@ -91,16 +82,11 @@ However, it makes a special emphasis in some very interesting aspects:</p>
 <li>Statically link everything</li>
 <li>Code Clarity</li>
 </ul>
-
 <h3 id="simplicity">Simplicity</h3>
-
 <p>The first thing to understand about Go is that it is stupidly easy to learn.
 Anyone with any programming experience can learn it at a competent level in under a week.</p>
-
 <p>This is in great part to the amazing amount of emphasis the Golang team have put on a clear language.</p>
-
 <p>For example, here is an excerpt from a random repo I&rsquo;ve been contributing to:</p>
-
 <pre><code>  func InvertColorMap() {
     re := regexp.MustCompile(&quot;.*.fg&quot;)
     for k, _ := range ColorMap {
@@ -111,61 +97,39 @@ Anyone with any programming experience can learn it at a competent level in unde
     ColorMap[&quot;par.text.hi&quot;] = ui.ColorWhite
   }
 </code></pre>
-
 <p>It doesn&rsquo;t really take a rocket scientist to realize that this code simply does:</p>
-
 <ul>
 <li>Declare a function InvertColorMap with no arguments that does the following:
-
 <ol>
 <li>Make a regexp for things ending in &ldquo;.fg&rdquo;</li>
 <li>Iterate the keys of a <strong>ColorMap</strong> thing.</li>
 <li>Find All Strings that match the <strong>Regex</strong> in the Key and if not nil, set that <strong>ColorMap</strong> key to ui.ColorBlack</li>
 <li>Finally, set the specific key of &ldquo;par.text.hi&rdquo; in <strong>ColorMap</strong> to White</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-
 <p>Congratulations, you apparently already know Golang.</p>
-
 <h3 id="fast-compilation">Fast Compilation</h3>
-
 <p>Golang compiles <em>fast</em>. And I don&rsquo;t mean the &ldquo;Just one cup of coffe&rdquo; kind of fast. I mean &ldquo;Are you sure I used the right build command?&rdquo; fast.</p>
-
 <p>As an example I timed the compilation of <a href="https://github.com/revel/revel">Revel</a>, one of the main Web Frameworks for Go (which is awesome, by the way) and the compilation took less than a second (specifically 0.879s of real time).</p>
-
 <p>Granted, it&rsquo;s not the hugest app I could find, but it&rsquo;s a good representation I feel of a <em>useful app</em>.</p>
-
 <p>As a bigger example, I also compiled the go compiler and its tools, and it took just 8m 20.068s, and about 40% of that was running the tests.</p>
-
 <p>So if you care for fast compilation times, Go has your back, bro.</p>
-
 <h3 id="package-management">Package Management</h3>
-
 <p>Go has taken the trend started by Python&rsquo;s <code>pip</code> and Ruby&rsquo;s <code>gem</code>, and integrated the package management system into the standard toolchain in the form of <code>go get</code>.</p>
-
 <p>This is, IMO a fantastic thing, as there is a standard way of organizing your dependencies. However, <code>go get</code> is not without its caveats:</p>
-
 <ul>
 <li><code>go get</code> kinda forces you into a monorepo, where your code is always located in <code>$GOPATH/src/github.com/kenan-rhoton/foo-project</code> or similar.</li>
 <li>It encourages a philisophy of always using the latest version of dependencies, which I find a good thing, but most people dont. You can opt out of that by vendoring the dependencies, but it&rsquo;s kinda ugly.</li>
 </ul>
-
 <p>Some solutions have appeared that target these problems, chief among them is <a href="https://github.com/Masterminds/glide">Glide</a>, which essentially makes vendoring easy.</p>
-
 <p>In most cases, though, this means that the only step to build a project is <code>go get -u github.com/user/repo</code>, which will automatically fetch the project and its dependencies, build it and install its binary (if any) into $GOPATH/bin.</p>
-
 <p><strong>Update!</strong></p>
-
 <p>Go is now introducing <a href="https://github.com/golang/go/wiki/Modules">Go Modules</a> so it seems that there will be no true pain points left in this area (I even think they&rsquo;ve surpassed every other package management tool for any language except perhaps Rust&rsquo;s Cargo).</p>
-
 <h3 id="channel-based-concurrency">Channel-Based Concurrency</h3>
-
 <p>Here we can see a big part of its Alef influence: channels.</p>
-
 <p>The &ldquo;Go way&rdquo; of doing concurrency is to simply launch a &ldquo;goroutine&rdquo; and communicate with it through blocking channels.</p>
-
 <p>A quick example, since Go tends to be easier to understand by actually looking at code:</p>
-
 <pre><code>import (
     &quot;fmt&quot;
 )
@@ -180,11 +144,8 @@ func main() {
     fmt.Println(&lt;-c)
 }
 </code></pre>
-
 <p>That is a complete Hello World program with concurrency.</p>
-
 <p>Another cool feature in golang is that, although reading and writing to a channel is, in general, blocking, one can do a nonblocking read using the <code>select</code> construct:</p>
-
 <pre><code>select {
     case res := &lt;-i:
         fmt.Println(res)
@@ -192,99 +153,59 @@ func main() {
         fmt.Println(&quot;Received nothing yet!&quot;)
 }
 </code></pre>
-
 <h3 id="statically-link-everything">Statically link everything</h3>
-
 <p>This is a funny one. I&rsquo;ve heard two kinds of arguments:</p>
-
 <ol>
 <li>Statically linking is a vestige of the 80s, dynamically link everything!</li>
 <li>Statically linking is faster, clearer, cleaner and makes things not randomly break.</li>
 </ol>
-
 <p>I&rsquo;m in favor of the second one, so this section is a Go advantage in my mind, but feel free to disagree! (You can always open an issue at <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">github</a>)</p>
-
 <p>So Go compiles into a completely self-contained executable 100% of the time.
 No worries about external things breaking it.
 That has got to be good.</p>
-
 <h3 id="code-clarity">Code Clarity</h3>
-
 <p>This is one of my favorite things: Go includes tools such as <code>gofmt</code> and <code>go vet</code> which define the code style and best practices for the language.</p>
-
 <p>In fact, Go likes Code Clarity so much that it won&rsquo;t even compile if you have an unused variable declared. Or unused package imported.</p>
-
 <p>I love that many of these &ldquo;warnings&rdquo; have become compilation errors, forcing you to do what you should already be doing: coding correctly.</p>
-
 <p>Finally, <code>go test</code> is something that is more and more prevalent in different languages, and that is an ingrained testing approach.</p>
-
 <p>I particularly like that go encourages you to have your test files alongside the files they&rsquo;re testing (so <code>thing.go</code> would be tested by <code>thing_test.go</code> in the same directory).</p>
-
 <h2 id="what-does-go-suck-at">What does Go suck at?</h2>
-
 <p>Go, like every other language, is not perfect. In fact it has some very clear flaws:</p>
-
 <ol>
 <li>Development speed.</li>
 <li>No real mature Game Development packages.</li>
 <li>Embedded systems not really supported.</li>
 <li>Error handling is weird</li>
 </ol>
-
 <h3 id="development-speed">Development speed</h3>
-
 <p>This is where Go has sacrificed everything, pretty much. By following the <em>less is more</em> principle they&rsquo;ve created a beautiful understandable language where you have to put the more to get things done.</p>
-
 <p>So pretty much everything you want to do in the language, you have to do yourself. And it will be very easy to do, yes. But it will also take time.</p>
-
 <p>As an example, the language doesn&rsquo;t even have a <code>round</code> function in its Math library. But yeah, you can probably implement it in less than 10 lines of code, so who cares?</p>
-
 <p>When you add all this, you reach a very weird conclusion: the time you save in searching documentation and stuff because the language is so easy to understand is simply traded in increased development time.</p>
-
 <p>So Go is not a language for when you want to develop <em>fast</em>.</p>
-
 <p><strong>Update!</strong></p>
-
 <p>After some further usage and being involved with companies that are working in Go a lot, I now see I was terribly wrong in this point.</p>
-
 <p>It may be that the verbosity of Go (which might be greatly reduced if generics happen) sort of offsets its simplicity and readability <em>when working alone</em>. However, when <strong>working as a team</strong>, these advantages are so great that the development speed is comparable to Python or Ruby, making development with this language a very fast and smooth process.</p>
-
 <h3 id="no-real-gamedev">No real GameDev</h3>
-
 <p>Aside from <a href="https://github.com/azul3d/engine">Azul3d</a> I&rsquo;m not really aware of any true 3D game engines, and it&rsquo;s still a very small project.</p>
-
 <p>For 2D you have some other options, but nothing mature enough, really.</p>
-
 <h3 id="embedded-systems">Embedded Systems</h3>
-
 <p>Sure, you <em>can</em> use Go for Embedded Systems, just like you can use Java, but really, it&rsquo;s like trying to put on a very small shoe.</p>
-
 <p>Just don&rsquo;t force it.</p>
-
 <h3 id="error-handling-is-weird">Error handling is weird</h3>
-
 <p>This is more of a style chose, but it puts many people off. This is a typical function call with error handling in Go:</p>
-
 <pre><code>c, err := DoSomething(foo)
 if err != nil {
     return nil, err
 }
 </code></pre>
-
 <p>This is much clunkier than the <code>try/catch</code> paradigm most people are used to, and for some that&rsquo;s enough to just scratch the language.</p>
-
 <p><strong>Update!</strong></p>
-
 <p>This is <a href="https://go.googlesource.com/proposal/+/master/design/go2draft.md">being looked into</a></p>
-
 <h2 id="so-when-should-i-use-go">So&hellip; When should I use Go?</h2>
-
 <p>Go is, I believe, a <strong>great team language</strong>.</p>
-
 <p>I would reccommend using it if you&rsquo;re beginning any project with more than 4 people and there&rsquo;s no language that they&rsquo;re &ldquo;experts at&rdquo; (like, everyone having 10+ years of Java experience or something).</p>
-
 <p>I also think it&rsquo;s a <strong>great server language</strong>.</p>
-
 <p>What I mean is that, if your software requires a lot of concurrency, web connections, and all sorts of other server shenanigans, it is a great choice.</p>
 
     </section>
@@ -352,7 +273,7 @@ if err != nil {
       
   </section>
 
-		<section class="copyright">&copy; 2018 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+		<section class="copyright">&copy; 2020 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
 	</div>
 </footer>
 

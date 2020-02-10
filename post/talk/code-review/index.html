@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Let&#39;s talk about Code Reviews &middot; Hype-Driven Development</title>
+    <meta name="author" content="Kenan Rhoton">
+    <meta name="description" content="The new, the old and the ugly">
+    <meta name="generator" content="Hugo 0.64.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://kenan-rhoton.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/screen.css">
+    <link rel="stylesheet" href="https://kenan-rhoton.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://kenan-rhoton.github.io/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #ff9d00;}
+    .pagination a {color: #ff9d00;}
+    .gist .gist-file .gist-meta a:visited {color: #ff9d00 !important;}
+    a:focus, a:hover {color: #d88500;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #d88500;}
+    .older-posts:hover, .newer-posts:hover {color: #d88500;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kenan-rhoton.github.io">Hype-Driven Development</a></h1>
+	
+	
+	<h1 class="blog-subtitle">New stuff in Software Development</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">Let&#39;s talk about Code Reviews</h1>
+        <div class="post-meta">
+            <time datetime="10 February 2020">
+                10 February 2020
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        <p>Also known as &ldquo;just hit accept, I checked it already!&quot;.</p>
+<p>The Code Review is a practice that dates back to ancient times when someone would finish writing some code (in this case the Hammurabi Code) and someone else would check to make sure they hadn&rsquo;t made any stupid mistakes.
+So I guess you&rsquo;ll understand me when I find it surprising we still do it wrong.</p>
+<p>What do I mean by wrong? Let&rsquo;s look at some common types of bad code reviews.</p>
+<h1 id="the-code-seems-fine">&ldquo;The code seems fine&rdquo;</h1>
+<p>Meet Jake McJakeson. He&rsquo;s a relatively junior programmer with some experience here and there who&rsquo;s actually quite talented at the whole &ldquo;writing words in some obtuse computer language until it works&rdquo; thing we usually call software development. Jake finds a code review assigned to him, reads the code quite thoroughly and finds it to be correct. So he hits the &ldquo;Accept&rdquo; button and goes onto his next task finding that pesky bug.</p>
+<p>The code then breaks horribly in production.</p>
+<p>What went wrong? Well, multiple things, starting with the code obviously having some defect. But what mistake did Jake make? <em>He thought he was a computer</em>. What I mean by this is computers are pretty good at interpreting code and calculating outcomes. Humans? Not so much.</p>
+<p>That code needed to come with tests. And Jake had to run those tests and check that the tests, <em>as well as the code</em>, made sense. So let&rsquo;s add those items to our list for a good code review:</p>
+<ol>
+<li>The code must pass all tests</li>
+<li>The code must have its own tests</li>
+<li>The tests must be good</li>
+</ol>
+<p>But that&rsquo;s not all that could be improved. Let&rsquo;s go meet someone else.</p>
+<h1 id="all-green">&ldquo;All green!&rdquo;</h1>
+<p>Meet Sandra O&rsquo;Sanderson. She&rsquo;s got much the experience with the doing of the programming. She&rsquo;s even into TDD! Yeah, she&rsquo;s top-notch programmer material. She finds a code review assigned to her and runs the tests herself before even reading anything. She finds they pass and, after a good hour spent reading through the intricacies of the tests and code, finds it all to be acceptable and correct, so she gives the green light!</p>
+<p>The code then breaks horribly in production.</p>
+<p>What went wrong this time? Sure, the tests were fine and covered most use-cases, but some of those cases weren&rsquo;t tested for. How did Sandra, an experienced developer, miss that? The answer is simple: the code was as unreadable as Twilight. If Sandra, instead of devoting time to try to understand the crazy mess of code that somehow worked had instead been like &ldquo;Yo! Karl Karlson! This code&rsquo;s a mess. Make it not a mess or I ain&rsquo;t approving squat!&rdquo; she would&rsquo;ve been able to then devote her energy to the other problem: the tests didn&rsquo;t cover everything they needed to. So let&rsquo;s expand our list:</p>
+<ol>
+<li>The code must pass all tests</li>
+<li>The code must have its own tests</li>
+<li>The tests must be good and cover all cases</li>
+<li>The code (including the test code) must be readable</li>
+</ol>
+<p>So there we go! We know how to make a code review! There&rsquo;s no way there are other problems that can</p>
+<h1 id="thats-quite-beautiful-son">&ldquo;That&rsquo;s quite beautiful, son&rdquo;</h1>
+<p>Meet Jack &ldquo;Jackie&rdquo; Jackson IV. This guy is a senior. Like the real deal kind of old guard. And the good kind of old guard, who did Agile before most of us were even born and who say crazy things like &ldquo;Java is a modern language&rdquo; or &ldquo;I think we can improve on the COBOL unit tests&rdquo;. Jackie gets assigned a Code Review and returns it five minutes later asking for clarification for a specific function that has too high a ciclomatic complexity. Eventually, the code is a thing of beauty which Alan Turing would weep tears of joy for and Jackie gives it the thumbs up. And everything is fine! Nothing breaks, and Jackie continues on with his tickets and on with his life like a good senior software developer.</p>
+<p>Two months later the code breaks horribly in production.</p>
+<p>What went wrong? Like seriously? Surely I can&rsquo;t blame a two-month old code review for a recent bug, right? It was clearly Cassandra Cassidy&rsquo;s latest commit that broke everything! Jackie did nothing wrong! #freejackie2020. Well that beautiful code he let into production was part of a 21622-line file called <code>core.php</code> (don&rsquo;t you love such descriptive names?) where, despite most of the code being quite good, it was quite hard to do things like: find the right function/definition, check if some functionality already existed (unless you already knew the name), understand where you were even supposed to put the new code&hellip; So yeah, Cassandra goofed up, but Jackie, with all his experience, should&rsquo;ve been like &ldquo;Yo! This is a bad idea! Abort mission! We need to break this file down!&quot;. And so we get to our final list:</p>
+<ol>
+<li>The code must pass all tests</li>
+<li>The code must have its own tests</li>
+<li>The tests must be good and cover all cases</li>
+<li>The code (including the test code) must be readable</li>
+<li>The code (including the test code) must be well-organized</li>
+</ol>
+<p>So as we see, making a code review is</p>
+<h1 id="a-job-well-done">&ldquo;A job well done&rdquo;</h1>
+<p>Meet Sir Edward Edwards, commonly known as &ldquo;Sir&rdquo;, who has been knighted by Queen Elizabeth II for his excelency in code. He gets a code review assigned, checks it passes the tests, checks the test code, the readability and the organization and it is all deliciously perfect. He salutes his screen as he merges the commit to master.</p>
+<p>The code then breaks horribly in production.</p>
+<p>Now this is getting silly. I know. What could there possibly have been left for Sir (Mr. Sir to you, actually) to do? He did everything right! He even checked my blog to make sure he got everything right. Sadly, he missed this last crucial section where we come to the most obvious thing to do in a code review and which, surprisingly, few people actually do.</p>
+<p>He never tried the code himself. If he had actually run the code in his machine, the code that perfectly passed all the tests, he would have immediately realized that the CSS was horribly mangled and the menus were overflowing from the screen, making the site suddenly impossible to navigate. He forgot to not just trust the process, but to trust his eyes. So this time we <em>really</em> are at the end. I promise. No takebacksies.</p>
+<ol>
+<li>The code must pass all tests</li>
+<li>The code must have its own tests</li>
+<li>The tests must be good and cover all cases</li>
+<li>The code (including the test code) must be readable</li>
+<li>The code (including the test code) must be well-organized</li>
+<li>The code must work when executed</li>
+</ol>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>This post may or may not be motivated by too many people asking me questions about code reviews alongside some masochists asking me to retake the blog. As always, I try to be thorough, but I still make mistakes! <em>Use responsibly</em>.</p>
+<p>Please feel free to open an issue at my <a href="https://github.com/kenan-rhoton/kenan-rhoton.github.io">Github</a> if you think I should add or change anything!</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/lets-talk-about">Let&#39;s talk about </a>
+            
+                
+                <a href="https://kenan-rhoton.github.io/tags/code-reviews">Code Reviews </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=Let%27s%20talk%20about%20Code%20Reviews&url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2fcode-review%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2fcode-review%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fkenan-rhoton.github.io%2fpost%2ftalk%2fcode-review%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://kenan-rhoton.github.io/img/avatar.jpg)"></div>
+    <h4>Kenan Rhoton</h4>
+    <p class="bio">programmer - blogger</p>
+    <p class="meta">
+      
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/kenan-rhoton" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2020 <a href="https://kenan-rhoton.github.io">Kenan Rhoton</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kenan-rhoton.github.io/js/index.js"></script>
+<script src="https://kenan-rhoton.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>
